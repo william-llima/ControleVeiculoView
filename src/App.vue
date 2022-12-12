@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-btn to="/">Controle Grid</v-btn>
+      </div>
+
+      <v-spacer></v-spacer>
+      
+      <v-btn to="/motorista">Motorista</v-btn>
+      <v-btn to="/veiculo">Veiculo</v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <Transition mode="out-in" 
+       enter-active-class="animate__animated animate__backInLeft"
+                   >
+        <router-view></router-view>
+      </Transition>
+    
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data: () => ({
+    //
+  }),
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+:root {
+    --animate-duration: 500ms;
+    --animate-delay: 0.3s;
+  }
 </style>
